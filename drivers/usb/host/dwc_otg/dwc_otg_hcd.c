@@ -1207,10 +1207,7 @@ static void assign_and_init_hc(dwc_otg_hcd_t * hcd, dwc_otg_qh_t * qh)
 
 	hc->xfer_started = 0;
 	hc->halt_status = DWC_OTG_HC_XFER_NO_HALT_STATUS;
-	if (!fiq_fsm_enable)
-		hc->error_state = (qtd->error_count > 0);
-	else
-		hc->error_state = 0;
+	hc->error_state = (qtd->error_count > 0);
 	hc->halt_on_queue = 0;
 	hc->halt_pending = 0;
 	hc->requests = 0;
